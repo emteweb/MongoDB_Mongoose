@@ -9,7 +9,7 @@
     <h1><%= product.name %></h1>
     <ul>
         <li> <%= product.price %> </li>
-        <li> <%= product.category %> </li>
+        <li> <a href="/products?category=<%= product.category %>"> <%= product.category %> </a> </li>
     </ul>
 
     <a href="/products"> All products</a>
