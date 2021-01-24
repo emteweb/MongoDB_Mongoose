@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New product</title>
+</head>
+<body>
+
+    <h1>Edit product</h1>
+
+    <form action="/products/<%= product._id%>?_method=PUT" method="POST">
+        <label for="name">Product name</label>
+        <input type="text" name="name" id="name" placeholder="product name" value="<%= product.name %>">
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" placeholder="product price" value="<%= product.price %>">
+        <label for="category">Category</label>
+        <select name="category" id="category">
+            <% categories.forEach((category) => { %>
+                <option value="<%=category %>" <%=product.category === category ? 'selected' : '' %>> <%=category %> </option>
+            <% }) %>
+        
+            <!-- <option value="" selected disabled hidden>Choose here</option>
+            <option value="fruit" <%=product.category === 'fruit' ? 'selected' : '' %> >fruit</option>
+            <option value="vegetable" <%=product.category === 'vegetable' ? 'selected' : '' %> >vegetable</option>
+            <option value="dairy" <%=product.category === 'dairy' ? 'selected' : '' %> >>dairy</option> -->
+        </select>
+        <button> Submit </button>
+        </form>
+
+        <a href="/products/<%=product._id%>">CANCEL</a>
+        
+    
+</body>
+</html>
